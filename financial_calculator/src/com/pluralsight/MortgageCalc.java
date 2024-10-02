@@ -10,12 +10,12 @@ public class MortgageCalc{
     public static void main(String[] args) {
         int loanlength= loanLength();
         double loanamount=loanAmount();
-       double interestrate=interestRate();
+       double rate=interestRate();
 
         int totalpayments= loanlength*12;
-        double monthlyIntR=interestrate/12;
-        double monthlypayment= loanamount * (interestrate * Math.pow(1+interestrate,totalpayments))
-                /((Math.pow(1+interestrate,totalpayments))-1);
+        double monthlypayment= loanamount * Math.pow((1+rate),(loanlength))/((1+rate),(loanlength -1);
+        double monthlyIntR=loanamount*((Math.pow((1+rate/100), (loanlength*12) - loanamount)));
+
         monthly(monthlyIntR, monthlypayment, totalpayments);
 
 
@@ -38,7 +38,7 @@ public class MortgageCalc{
         return intR;
     }
     public static void monthly(Double monthlyIntR, Double monthlypayment, Integer totalpayments){
-        System.out.println("your monthly interest rate: " +monthlyIntR);
+        System.out.println("your monthly compound interest: " +monthlyIntR);
         System.out.println("your monthly payment: " +monthlypayment);
         System.out.println("your total payments when paid off: " +totalpayments);
     }
